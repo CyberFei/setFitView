@@ -33,13 +33,15 @@ export function getCorner({
   padding,
 }: Props) {
   // 获取 points 所占据最大区域矩形的左下|右上|中心经纬度
-  let lb: Point = {} as any;
-  lb.latitude = Math.min(...points.map((item) => item.latitude));
-  lb.longitude = Math.min(...points.map((item) => item.longitude));
+  const lb: Point = {
+    latitude: Math.min(...points.map((item) => item.latitude)),
+    longitude: Math.min(...points.map((item) => item.longitude)),
+  };
 
-  let rt: Point = {} as any;
-  rt.latitude = Math.max(...points.map((item) => item.latitude));
-  rt.longitude = Math.max(...points.map((item) => item.longitude));
+  const rt: Point = {
+    latitude: Math.max(...points.map((item) => item.latitude)),
+    longitude: Math.max(...points.map((item) => item.longitude)),
+  };
 
   const center: Point = {
     latitude: (lb.latitude + rt.latitude) / 2,
